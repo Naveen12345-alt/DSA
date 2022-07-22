@@ -9,3 +9,8 @@ function serialize(arr) {
     return acc
   }, "")
 }
+
+function deSerialize(string){
+  const newArr=!Array.isArray(string)?JSON.parse(string):string
+  return newArr.map(item=>Array.isArray(item)?deSerialize(item):""+item)
+}
