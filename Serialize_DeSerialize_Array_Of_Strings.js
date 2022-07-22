@@ -4,7 +4,7 @@ function serialize(arr) {
   return arr.reduce(function(acc, next,index){
     let isArray =  Array.isArray(next)
     if(index===0) acc+="["
-    acc+=isArray ? flatten(next) : ""+next+(index!==arr.length-1?",":"")
+    acc+=isArray ? serialize(next) : ""+next+(index!==arr.length-1?",":"")
     if(index===arr.length-1) acc+="]"
     return acc
   }, "")
